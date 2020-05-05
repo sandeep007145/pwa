@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PwaService } from '../pwa/pwa.service';
 
 @Component({
   selector: 'app-onec',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OnecComponent implements OnInit {
   title = 'Pwa App';
-  constructor() { }
+  constructor(
+    public pwa: PwaService
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  installPwa(): void {
+    this.pwa.promptEvent.prompt();
   }
 
 }

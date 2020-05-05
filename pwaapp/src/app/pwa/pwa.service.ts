@@ -6,7 +6,11 @@ import { interval } from 'rxjs';
   providedIn: 'root'
 })
 export class PwaService {
+  promptEvent = null;
   constructor(public updates: SwUpdate) {
+    window.addEventListener('beforeinstallprompt', event => {
+      this.promptEvent = event;
+    });
     if (updates.isEnabled) {
       interval(6 * 60 * 60).subscribe(() => updates.checkForUpdate()
         .then(() => console.log('checking for updates')));

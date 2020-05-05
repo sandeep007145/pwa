@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { OnecComponent } from './onec/onec.component';
-
+import { DeviceDetectorModule } from 'ngx-device-detector';
+import {HttpClientModule} from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,6 +16,8 @@ import { OnecComponent } from './onec/onec.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
+    DeviceDetectorModule.forRoot(),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
