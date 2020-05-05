@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({
 // jwt secret token
 app.set('secretKey', 'nodeRestApi');
 
-app.use(express.static(path.join(__dirname, 'angular-src/dist/demoPwa')));
+app.use(express.static(path.join(__dirname, 'angular-src/dist/pwaapp')));
 
 app.get('/', function(req, res) {
     res.json({
@@ -27,7 +27,7 @@ app.get('/', function(req, res) {
 // public route
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'angular-src/dist/demoPwa/index.html'));
+    res.sendFile(path.join(__dirname, 'angular-src/dist/pwaapp/index.html'));
 });
 
 
