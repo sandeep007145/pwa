@@ -9,6 +9,8 @@ export class PwaService {
   promptEvent = null;
   constructor(public updates: SwUpdate) {
     window.addEventListener('beforeinstallprompt', event => {
+      console.log(event);
+      
       this.promptEvent = event;
     });
     if (updates.isEnabled) {
