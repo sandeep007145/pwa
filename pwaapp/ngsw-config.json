@@ -10,6 +10,7 @@
           "/favicon.ico",
           "/index.html",
           "/manifest.json",
+          "/*.scss",
           "/*.css",
           "/*.js"
         ]
@@ -25,5 +26,6 @@
         ]
       }
     }
-  ]
+  ],
+  "dataGroups": []
 }
