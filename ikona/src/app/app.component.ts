@@ -4,6 +4,7 @@ import * as firebase from 'firebase/app';
 import 'firebase/messaging';
 import { environment } from 'src/environments/environment';
 import { SwUpdate, SwPush } from '@angular/service-worker';
+import { NotifyService } from './notify.service';
 // import { } from 'googlemaps';
 
 @Component({
@@ -25,7 +26,7 @@ export class AppComponent implements OnInit {
   marker: google.maps.Marker;
 
 
-  constructor(updates: SwUpdate, push: SwPush) {
+  constructor(updates: SwUpdate, push: SwPush, private notify: NotifyService) {
     updates.available.subscribe(_ => updates.activateUpdate().then(() => {
       console.log('reload for update');
       document.location.reload();
@@ -39,18 +40,22 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    var mapProp = {
-      center: new google.maps.LatLng(18.5793, 73.8143),
-      zoom: 15,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-    this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
   }
 
   permitToNotify() {
     const messaging = firebase.messaging();
     messaging.requestPermission()
-      .then(() => messaging.getToken().then(token => this.displayToken = token))
+      .then(() => messaging.getToken().then(token => {
+        this.displayToken = token
+        const data = { 
+          "notification": {
+           "title": "Hello World", 
+           "body": "This is Message from Admin"
+          },
+          "to" : token
+         };
+         this.notify.notify(data);
+        }))
       .catch(err => {
         console.log('Unable to get permission to notify.', err);
       });
@@ -69,20 +74,7 @@ export class AppComponent implements OnInit {
   showPosition(position) {
     this.currentLat = position.coords.latitude;
     this.currentLong = position.coords.longitude;
-
-    let location = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-    this.map.panTo(location);
-
-    if (!this.marker) {
-      this.marker = new google.maps.Marker({
-        position: location,
-        map: this.map,
-        title: 'Got you!'
-      });
-    }
-    else {
-      this.marker.setPosition(location);
-    }
+   this.trackMe();
   }
 
   trackMe() {
@@ -100,20 +92,6 @@ export class AppComponent implements OnInit {
     console.log(`tracking postion:  ${position.coords.latitude} - ${position.coords.longitude}`);
     this.currentLat = position.coords.latitude;
     this.currentLong = position.coords.longitude;
-
-    let location = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-    this.map.panTo(location);
-
-    if (!this.marker) {
-      this.marker = new google.maps.Marker({
-        position: location,
-        map: this.map,
-        title: 'Got you!'
-      });
-    }
-    else {
-      this.marker.setPosition(location);
-    }
   }
 
   
