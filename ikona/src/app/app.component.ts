@@ -94,8 +94,10 @@ export class AppComponent implements OnInit {
 
   showTrackingPosition(position) {
     console.log(`tracking postion:  ${position.coords.latitude} - ${position.coords.longitude}`);
-    this.currentLat = position.coords.latitude;
-    this.currentLong = position.coords.longitude;
+    console.log(this.getDistanceFromLatLonInKm(this.currentLat, this.currentLong, position.coords.latitude, position.coords.longitude));
+    
+    // this.currentLat = position.coords.latitude;
+    // this.currentLong = position.coords.longitude;
     this.notifyUser(this.displayToken)
   }
 
