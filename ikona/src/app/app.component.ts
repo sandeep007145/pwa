@@ -101,7 +101,7 @@ export class AppComponent implements OnInit, OnDestroy {
        this.distance = this.getDistanceFromLatLonInKm(this.currentLat, this.currentLong, position.coords.latitude, position.coords.longitude);
       // this.currentLat = position.coords.latitude;
       // this.currentLong = position.coords.longitude;
-      if(this.distance && !this.isNotified) {
+      if(this.distance > 6000 && !this.isNotified) {
         this.isNotified = true;
         this.notifyUser(this.displayToken)
       }
