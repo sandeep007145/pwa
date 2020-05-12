@@ -49,10 +49,14 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   notifyUser(token) {
-    const data = {notification: {title: 'baba', body: 'Staty home stay safe'},
+    const data = {notification: {title: 'baba', body: 'Staty home stay safe', click_action: this.naviagteUser()},
      to: token ? token : 
      'cIvd6BicPKvNNpzf9Pu74k:APA91bHaVrosIer37htXL_K2HoS8CEBof2dYRitxXfuxg8U2IMOO9bxzh3HWZDN58QiEBv_jNXY9rxf9uRPvbl_tue_tq9Dj12ICQqsna7z-0iY17EiP3f_Zgj3C9aew1bwUxg9Jzk6a'}
     this.notify.notify(data).subscribe(res => {console.log(res);})
+  }
+
+  naviagteUser() {
+    window.location.href = 'https://demoofpwa.herokuapp.com/'
   }
 
   permitToNotify() {
