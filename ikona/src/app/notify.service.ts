@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { ApiService } from './api/api.service';
 
 @Injectable({
   providedIn: 'root'
@@ -7,10 +10,10 @@ import { HttpClient } from '@angular/common/http';
 export class NotifyService {
 
   constructor(
-    private http: HttpClient
+    private http: ApiService
   ) { }
 
-  notify(data) {
-    return this.http.post(data,'https://fcm.googleapis.com/fcm/send');
+  notify(data): Observable<any> {
+    return this.http.post('https://fcm.googleapis.com/fcm/send', data);
   }
 }
