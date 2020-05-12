@@ -35,7 +35,9 @@ export class AppComponent implements OnInit {
     push.notificationClicks.subscribe(click => console.log('notification click', click));
     if (!firebase.apps.length) {
       firebase.initializeApp(environment.firebaseConfig);
-      navigator.serviceWorker.getRegistration().then(swr => firebase.messaging().useServiceWorker(swr));
+      navigator.serviceWorker.getRegistration().then(swr => firebase.messaging().useServiceWorker(swr)).catch(err => {
+console.log('error occurs');
+      });
     }
   }
 
@@ -47,17 +49,11 @@ export class AppComponent implements OnInit {
     messaging.requestPermission()
       .then(() => messaging.getToken().then(token => {
         this.displayToken = token
-        const data = { 
-          "notification": {
-           "title": "Hello World", 
-           "body": "This is Message from Admin"
-          },
-          "to" : token
-         };
-         this.notify.notify(data);
+          console.log(token)
+          
         }))
       .catch(err => {
-        console.log('Unable to get permission to notify.', err);
+        console.log('Unable to get permission to notify.');
       });
   }
 
