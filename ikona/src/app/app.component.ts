@@ -64,7 +64,6 @@ export class AppComponent implements OnInit, OnDestroy {
     messaging.requestPermission()
       .then(() => messaging.getToken().then(token => {
         this.displayToken = token
-          console.log(token)
         }))
       .catch(err => {
         console.log('Unable to get permission to notify.');
@@ -74,6 +73,7 @@ export class AppComponent implements OnInit, OnDestroy {
   findMe() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
+        console.log(position);
         this.showPosition(position);
       });
     } else {
@@ -99,7 +99,6 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   showTrackingPosition(position) {
-     this.interval = setInterval(() => {
       console.log(`tracking postion:  ${position.coords.latitude} - ${position.coords.longitude}`);
       console.log(this.getDistanceFromLatLonInKm(this.currentLat, this.currentLong, position.coords.latitude, position.coords.longitude));
        this.distance = this.getDistanceFromLatLonInKm(this.currentLat, this.currentLong, position.coords.latitude, position.coords.longitude);
@@ -109,7 +108,6 @@ export class AppComponent implements OnInit, OnDestroy {
         this.isNotified = true;
         this.notifyUser(this.displayToken)
       }
-    }, 5000);
   }
 
    getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
@@ -125,9 +123,6 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    if(this.interval) {
-      clearInterval(this.interval);
-    }
   }
 
   
