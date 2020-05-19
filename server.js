@@ -32,9 +32,9 @@ app.get('*', (req, res) => {
 
 
 
-app.get('/favicon.ico', function(req, res) {
-    res.sendStatus(204);
-});
+// app.get('/favicon.ico', function(req, res) {
+//     res.sendStatus(204);
+// });
 
 
 // express doesn't consider not found 404 as an error so we need to handle 404 it explicitly
