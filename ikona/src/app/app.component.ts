@@ -35,14 +35,14 @@ export class AppComponent implements OnInit, OnDestroy {
       console.log('reload for update');
       document.location.reload();
     }));
-    push.messages.subscribe(msg => console.log('push message', msg));
     push.notificationClicks.subscribe(click => console.log('notification click', click));
     if (!firebase.apps.length) {
       firebase.initializeApp(environment.firebaseConfig);
       navigator.serviceWorker.getRegistration().then(swr => firebase.messaging().useServiceWorker(swr)).catch(err => {
-       console.log('error occurs');
+        console.log('error occurs');
       });
     }
+    push.messages.subscribe(msg => console.log('push message', msg));
   }
 
   ngOnInit() {
