@@ -28,6 +28,7 @@ export class AppComponent implements OnInit, OnDestroy {
   currentLatmoved: any;
   currentLongmoved: any;
   marker: google.maps.Marker;
+  deferredPrompt;
 
 
   constructor(updates: SwUpdate, push: SwPush, public notify: NotifyService) {
@@ -35,6 +36,7 @@ export class AppComponent implements OnInit, OnDestroy {
       console.log('reload for update');
       document.location.reload();
     }));
+    push.messages.subscribe(msg => console.log('push message', msg));
     push.notificationClicks.subscribe(click => console.log('notification click', click));
     if (!firebase.apps.length) {
       firebase.initializeApp(environment.firebaseConfig);
@@ -42,10 +44,30 @@ export class AppComponent implements OnInit, OnDestroy {
         console.log('error occurs');
       });
     }
-    push.messages.subscribe(msg => console.log('push message', msg));
+    window.addEventListener('beforeinstallprompt', (e) => {
+      // Prevent the mini-infobar from appearing on mobile
+      e.preventDefault();
+      // Stash the event so it can be triggered later.
+      this.deferredPrompt = e;
+      // Update UI notify the user they can install the PWA
+      this.showInstallPromotion();
+    });
   }
 
   ngOnInit() {
+  }
+
+  showInstallPromotion() {
+    if(this.deferredPrompt) {
+      this.deferredPrompt.prompt();
+      this.deferredPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === 'accepted') {
+          console.log('User accepted the install prompt');
+        } else {
+          console.log('User dismissed the install prompt');
+        }
+      })
+    }
   }
 
   notifyUser(token) {
