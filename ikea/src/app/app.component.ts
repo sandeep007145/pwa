@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
+import { Item } from './api/api.service';
 
 @Component({
   selector: 'app-root',
@@ -6,33 +7,44 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent  implements OnInit{
-  title = 'boss'
-  deferredPrompt;
-constructor() {
-  window.addEventListener('beforeinstallprompt', (e) => {
-    // Prevent the mini-infobar from appearing on mobile
+  title = 'pwatest';
+  items: Array<Item>;
+
+  deferredPrompt: any;
+  showButton = false;
+
+  @HostListener('window:beforeinstallprompt', ['$event'])
+  onbeforeinstallprompt(e) {
+    console.log(e);
+    // Prevent Chrome 67 and earlier from automatically showing the prompt
     e.preventDefault();
     // Stash the event so it can be triggered later.
     this.deferredPrompt = e;
-    // Update UI notify the user they can install the PWA
-    this.showInstallPromotion();
-  });
-}
-
-ngOnInit() {
-}
-
-showInstallPromotion() {
-  if(this.deferredPrompt) {
-    this.deferredPrompt.prompt();
-    this.deferredPrompt.userChoice.then((choiceResult) => {
-      if (choiceResult.outcome === 'accepted') {
-        alert('User accepted the install prompt');
-      } else {
-        alert('User dismissed the install prompt');
-      }
-    })
+    this.showButton = true;
   }
-}
+
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+  addToHomeScreen() {
+    // hide our user interface that shows our A2HS button
+    this.showButton = false;
+    // Show the prompt
+    this.deferredPrompt.prompt();
+    // Wait for the user to respond to the prompt
+    this.deferredPrompt.userChoice
+      .then((choiceResult) => {
+        if (choiceResult.outcome === 'accepted') {
+          console.log('User accepted the A2HS prompt');
+        } else {
+          console.log('User dismissed the A2HS prompt');
+        }
+        this.deferredPrompt = null;
+      });
+  }
+
 
 }
