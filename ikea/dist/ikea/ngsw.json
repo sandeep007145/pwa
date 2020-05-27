@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1590566317033,
+  "timestamp": 1590578698575,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -65,7 +65,7 @@
     "/assets/images/add_icon.png": "83bd07ab17137661dde15d7ca5a200ff9f002fac",
     "/assets/images/ios-add-home-screen-icon.png": "b937538c8e13b10830ff838bb9ece5ec69ca2fba",
     "/favicon.ico": "3bc41aca9b03e524a9231d4b3d73cfb9b7c01c50",
-    "/index.html": "8c5e481aa56bdf344a7afe4384a0ef646b18f877",
+    "/index.html": "2f15ec7e05fc695e0abb6a01fa95884a117d006c",
     "/main-es2015.a5c3668a4604c54b9877.js": "8e5976490cc88465bd401f9afa71c4b9d378033b",
     "/main-es5.a5c3668a4604c54b9877.js": "0da0c8955bb5ea76673760c0a8853f799d17f87a",
     "/manifest.webmanifest": "0bfa8d2a62f98c6e2d176f4645c9a307237b1f84",
