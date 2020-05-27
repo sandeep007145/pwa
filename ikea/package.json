@@ -20,6 +20,13 @@
     "@angular/platform-browser-dynamic": "~9.1.6",
     "@angular/router": "~9.1.6",
     "@angular/service-worker": "~9.1.6",
+    "@auth0/angular-jwt": "^4.1.2",
+    "bootstrap": "^4.5.0",
+    "jquery": "^3.5.1",
+    "jsbarcode": "^3.11.0",
+    "ngx-barcode6": "^1.0.10",
+    "ngx-cookie-service": "^3.0.4",
+    "pdf417-barcode": "^0.4.1",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"

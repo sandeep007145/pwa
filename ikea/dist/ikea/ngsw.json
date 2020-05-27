@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1590386031573,
+  "timestamp": 1590564526963,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -8,16 +8,18 @@
       "installMode": "prefetch",
       "updateMode": "prefetch",
       "urls": [
+        "/1-es2015.0b31397246bf291e555c.js",
+        "/1-es5.0b31397246bf291e555c.js",
         "/favicon.ico",
         "/index.html",
-        "/main-es2015.0070557c01cfb427367a.js",
-        "/main-es5.0070557c01cfb427367a.js",
+        "/main-es2015.725bc65f28c2a5c4852c.js",
+        "/main-es5.725bc65f28c2a5c4852c.js",
         "/manifest.webmanifest",
-        "/polyfills-es2015.690002c25ea8557bb4b0.js",
-        "/polyfills-es5.9e286f6d9247438cbb02.js",
-        "/runtime-es2015.1eba213af0b233498d9d.js",
-        "/runtime-es5.1eba213af0b233498d9d.js",
-        "/styles.09e2c710755c8867a460.css"
+        "/polyfills-es2015.ae2ff135b6a0a9cb55e7.js",
+        "/polyfills-es5.736f2d9faec4ce67a92c.js",
+        "/runtime-es2015.3c95ecf3686f93d4a236.js",
+        "/runtime-es5.3c95ecf3686f93d4a236.js",
+        "/styles.aa077dcf179192e597b4.css"
       ],
       "patterns": []
     },
@@ -26,6 +28,8 @@
       "installMode": "lazy",
       "updateMode": "prefetch",
       "urls": [
+        "/assets/i18n/en.json",
+        "/assets/i18n/fr.json",
         "/assets/icons/icon-128x128.png",
         "/assets/icons/icon-144x144.png",
         "/assets/icons/icon-152x152.png",
@@ -33,31 +37,43 @@
         "/assets/icons/icon-384x384.png",
         "/assets/icons/icon-512x512.png",
         "/assets/icons/icon-72x72.png",
-        "/assets/icons/icon-96x96.png"
+        "/assets/icons/icon-96x96.png",
+        "/assets/images/Add_to_Apple_Wallet_rgb_US-UK.svg",
+        "/assets/images/Save to Google Pay - English (Dark).svg",
+        "/assets/images/add_icon.png",
+        "/assets/images/ios-add-home-screen-icon.png"
       ],
       "patterns": []
     }
   ],
   "dataGroups": [],
   "hashTable": {
-    "/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
-    "/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
-    "/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
-    "/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
-    "/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
-    "/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
-    "/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
-    "/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
-    "/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "/index.html": "840159f9497c5699f3986bc3a0538247af4b7cbd",
-    "/main-es2015.0070557c01cfb427367a.js": "bdac6b7be8ad4b33dcade8ab84e696063da47540",
-    "/main-es5.0070557c01cfb427367a.js": "006668d68b04b27368cebc9f88ff26897769b95b",
+    "/1-es2015.0b31397246bf291e555c.js": "6132e313d9136b350a20411b7100aca6c793e0cc",
+    "/1-es5.0b31397246bf291e555c.js": "77bb5eac886cf9ee7d51ce97a1b94f6ea52a6126",
+    "/assets/i18n/en.json": "c68d7461c47fa344fdd471a607ecaf2f273ae848",
+    "/assets/i18n/fr.json": "176c469b5133e7b2d96d04ab70570132bd56680e",
+    "/assets/icons/icon-128x128.png": "6e09e04402b4babe57b3c2fd98b2e28e1214a94b",
+    "/assets/icons/icon-144x144.png": "b0085c81ff1854affe6f0895b4def3575b0a97b6",
+    "/assets/icons/icon-152x152.png": "543c35cf9334bc131f27015ab8bdeb46806b45ec",
+    "/assets/icons/icon-192x192.png": "2dbb02197250a554e4e28a11e85378a05503dc93",
+    "/assets/icons/icon-384x384.png": "b9806ea1f914680daf1601fd4a3cbdb9348b8825",
+    "/assets/icons/icon-512x512.png": "80706f6a71242b9817e142b9b3cb0a9978287b7a",
+    "/assets/icons/icon-72x72.png": "daf073a804f6ccb322fba2a2ebcf5fc1f3f76032",
+    "/assets/icons/icon-96x96.png": "b29ad504a2160f3a19a4c08f103fd8774da3ada4",
+    "/assets/images/Add_to_Apple_Wallet_rgb_US-UK.svg": "78aa7600d94c882cf7541ea210c50725e7214827",
+    "/assets/images/Save to Google Pay - English (Dark).svg": "e3e3009c5197bcf61632380342aeb44c5e04e89d",
+    "/assets/images/add_icon.png": "83bd07ab17137661dde15d7ca5a200ff9f002fac",
+    "/assets/images/ios-add-home-screen-icon.png": "b937538c8e13b10830ff838bb9ece5ec69ca2fba",
+    "/favicon.ico": "3bc41aca9b03e524a9231d4b3d73cfb9b7c01c50",
+    "/index.html": "93edb01ede6d1611c5886497c55c985251846998",
+    "/main-es2015.725bc65f28c2a5c4852c.js": "f4303df9e5c8a912aefebde31a78e99df4259c5c",
+    "/main-es5.725bc65f28c2a5c4852c.js": "0cde31e2084607b39c97ad5bdf67c1929ad8bcb4",
     "/manifest.webmanifest": "0bfa8d2a62f98c6e2d176f4645c9a307237b1f84",
-    "/polyfills-es2015.690002c25ea8557bb4b0.js": "72ad4ccc0a3916ae4598199447cdeadd6d380570",
-    "/polyfills-es5.9e286f6d9247438cbb02.js": "89222a28dbabb780fc372d33834080e0cd3083d9",
-    "/runtime-es2015.1eba213af0b233498d9d.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
-    "/runtime-es5.1eba213af0b233498d9d.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
-    "/styles.09e2c710755c8867a460.css": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+    "/polyfills-es2015.ae2ff135b6a0a9cb55e7.js": "15a133b6cbb459a66fcd2e75f6aa25782e5d79c4",
+    "/polyfills-es5.736f2d9faec4ce67a92c.js": "6fb9b275d5f1484215fde72ba3f10480fa9692a8",
+    "/runtime-es2015.3c95ecf3686f93d4a236.js": "f7b00009696ed15d14b9b3b91167146827bd0ef4",
+    "/runtime-es5.3c95ecf3686f93d4a236.js": "a52b82b02d2d40a15fbd621712f6f33fc9042169",
+    "/styles.aa077dcf179192e597b4.css": "a4b82053a60dda01e6149cc9a252981822527915"
   },
   "navigationUrls": [
     {

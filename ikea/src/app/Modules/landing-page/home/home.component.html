@@ -1,0 +1,41 @@
+<div>
+  <div class="card highlight-card card-small">
+    <span>{{'Ikea family' | translate}}</span>
+  </div>
+  <div style="text-align:center">
+    <h5>Code 128</h5>
+    <ngx-barcode6 [bc-format]="'CODE128'"  [bc-value]="bcValue" [bc-display-value]="false">
+    </ngx-barcode6>
+    <div>
+      <h5>PDF 417:</h5>
+      <pdf417barcode [text]="text" [opts]="{ pxw: 1, pxh: 1 }"></pdf417barcode>
+    </div>
+  </div>
+  <div style="width: 316px; margin-left: 8px">
+    <div>
+      <br>
+      <img class="image-center" src="../../../../assets/images/Add_to_Apple_Wallet_rgb_US-UK.svg">
+      <br>
+      <img class="image-center" src="../../../../assets/images/Save to Google Pay - English (Dark).svg">
+      <br>
+      <img class="image-center" src="../../../../assets/images/add_icon.png" style="cursor: pointer;" (click)="addToHomeScreen()">
+      <br>
+    </div>
+    <h5>{{'In publishing and graphic design, Lorem ipsum is a placeholder text' | translate}} </h5>
+    <div>
+      <h4>iPhone/iPad </h4>
+      <p>1. {{'In publishing and graphic design, Lorem ipsum is a placeholder text' | translate}}</p>
+      <p>1. {{'In publishing and graphic design, Lorem ipsum is a placeholder text' | translate}}</p>
+    </div>
+    <div>
+      <h4>Android </h4>
+      <p>1. {{'In publishing and graphic design, Lorem ipsum is a placeholder text' | translate}}</p>
+      <p>1. {{'In publishing and graphic design, Lorem ipsum is a placeholder text' | translate}}</p>
+    </div>
+    <div>
+      <h4>Windows Phone </h4>
+      <p>1. {{'In publishing and graphic design, Lorem ipsum is a placeholder text' | translate}}</p>
+      <p>1. {{'In publishing and graphic design, Lorem ipsum is a placeholder text' | translate}}</p>
+    </div>
+  </div>
+</div>
