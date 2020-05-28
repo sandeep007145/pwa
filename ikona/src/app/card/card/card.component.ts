@@ -45,7 +45,7 @@ export class CardComponent implements OnInit {
     }
   
     addToHomeScreen() {
-      if(this.deferredPrompt) {
+      // if(this.deferredPrompt) {
         this.deferredPrompt.prompt();
         this.deferredPrompt.userChoice
         .then((choiceResult) => {
@@ -57,7 +57,7 @@ export class CardComponent implements OnInit {
             }
             this.deferredPrompt = null;
           });
-      }
+      // }
     }
    
   }
