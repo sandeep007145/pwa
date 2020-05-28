@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({
 // jwt secret token
 app.set('secretKey', 'nodeRestApi');
 
-app.use(express.static(path.join(__dirname, 'ikea/dist')));
+app.use(express.static(path.join(__dirname, 'ikona/dist/ikona')));
 
 app.get('/', function(req, res) {
     res.json({
@@ -27,14 +27,14 @@ app.get('/', function(req, res) {
 // public route
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'ikea/dist/index.html'));
+    res.sendFile(path.join(__dirname, 'ikona/dist/ikona/index.html'));
 });
 
 
 
-// app.get('/favicon.ico', function(req, res) {
-//     res.sendStatus(204);
-// });
+app.get('/favicon.ico', function(req, res) {
+    res.sendStatus(204);
+});
 
 
 // express doesn't consider not found 404 as an error so we need to handle 404 it explicitly
