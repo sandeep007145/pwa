@@ -54,6 +54,7 @@ export class CardComponent implements OnInit {
     this.getCardDetails();
     if (this.activatedRoute.snapshot.params.id) {
       this.bcValue = this.activatedRoute.snapshot.params.id;
+      this.text = this.activatedRoute.snapshot.params.id;
     }
   }
 
