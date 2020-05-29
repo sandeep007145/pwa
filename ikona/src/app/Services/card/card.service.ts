@@ -17,6 +17,6 @@ export class CardService {
   }
 
   sendDeviceInfo(data): Observable<any> {
-    return this.http.post(environment.base_url + 'pwa/invitations/open', data);
+    return this.http.post(environment.base_url + 'common/invitations/open', data);
   }
 }

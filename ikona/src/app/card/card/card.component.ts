@@ -7,9 +7,10 @@ import {
   TranslateService
 } from 'src/app/Services/translate/translate.service';
 import {
-  ActivatedRoute
+  ActivatedRoute, Router
 } from '@angular/router'
 import { CardService } from 'src/app/Services/card/card.service';
+import { StorageService } from 'src/app/Services/storage/storage.service';
 
 @Component({
   selector: 'app-card',
@@ -17,21 +18,10 @@ import { CardService } from 'src/app/Services/card/card.service';
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent implements OnInit {
-
-  bcValue = 12345678901231;
-  public text = "HRVHUB30\nHRK\n" +
-    "000000000012355\n" +
-    "PETAR KORETIĆ\n" +
-    "PREVOJ DD\n" +
-    "10000 Zagreb\n" +
-    "pkoretic J.D.O.O\n" +
-    "PREVOJ DD\n" +
-    "10000 ZAGREB\n" +
-    "HR5041240000000000\n" +
-    "HR01\n" +
-    "7336-68949637625-00001\n" +
-    "COST\n" +
-    "Uplata za 1. mjesec\n";;
+  errorInKey = false;
+  noUrl = false;
+  bcValue;
+  public text;
   showConntent = false;
   website;
   barCodeFormats = [];
@@ -47,21 +37,33 @@ export class CardComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     public translate: TranslateService,
-    private cardService: CardService
+    private cardService: CardService,
+    private storageService: StorageService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     this.getCardDetails();
-    if (this.activatedRoute.snapshot.params.id) {
-      this.bcValue = this.activatedRoute.snapshot.params.id;
-      this.text = this.activatedRoute.snapshot.params.id;
+    if (this.activatedRoute.snapshot.params.invitationKey) {
+      this.shareDeviceDetails();
+    } else if(this.activatedRoute.snapshot.params.id || this.activatedRoute.snapshot.params.id === 0){
+      // const data = JSON.parse(this.storageService.getData('card'));
+      // if(data.card) {
+      //   this.bcValue = data.card;
+      //   this.text = data.card;
+    //   } else {
+    //     this.noUrl = true;
+    //   }
+    // } else {
+    //   this.noUrl = true;
+    }
+    if(!this.activatedRoute.snapshot.params.invitationKey && !this.activatedRoute.snapshot.params.id) {
+      this.noUrl = true;
     }
   }
 
   getCardDetails() {
     this.cardService.getCardDetails().subscribe(res => {
-      this.shareDeviceDetails();
-      this.showConntent = true;
       if (res.result && res.result.market && res.result.market.barcodeFormats) {
         this.translate.useLang(res.result.market.languages[0]);
         this.languges = res.result.market.languages.map(lang => {
@@ -98,7 +100,7 @@ export class CardComponent implements OnInit {
 
   shareDeviceDetails() {
     const data = {
-      InvitationKey: 'BYhM29gQjIWQC5nl',
+      InvitationKey: this.activatedRoute.snapshot.params.invitationKey,
       DeviceInfo: JSON.stringify({
         userAgent: navigator.userAgent,
         platform: navigator.platform,
@@ -106,7 +108,13 @@ export class CardComponent implements OnInit {
       })
     };
     this.cardService.sendDeviceInfo(data).subscribe(res => {
-      console.log(res);
+      this.showConntent = true;
+      this.bcValue = res.result.cardNumber;
+      this.text = res.result.cardNumber;
+      // this.storageService.setData('card', JSON.stringify({id: res.result.id, card: res.result.cardNumber}))
+      // this.router.navigateByUrl(`${res.result.id}`)
+    }, err => {
+      this.errorInKey = true;
     });
   }
 

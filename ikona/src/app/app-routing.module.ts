@@ -5,7 +5,7 @@ import { CardComponent } from './card/card/card.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/', pathMatch: 'full'},
-  {path: '', component: CardComponent},
+  {path: 'invitation/:invitationKey', component: CardComponent},
   {path: ':id', component: CardComponent},
 ];
 
