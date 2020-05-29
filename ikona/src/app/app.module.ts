@@ -13,6 +13,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { InterceptorService } from './Services/interceptor/interceptor.service';
 import { NgxBarcode6Module } from 'ngx-barcode6';
 import { Pdf417BarcodeModule } from "pdf417-barcode";
+import { QRCodeModule } from 'angularx-qrcode';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -32,6 +33,7 @@ export function tokenGetter() {
     HttpClientModule,
     Pdf417BarcodeModule,
     NgxBarcode6Module,
+    QRCodeModule,
     JwtModule.forRoot({
       config: {
         // tslint:disable-next-line:object-literal-shorthand

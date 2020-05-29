@@ -1,5 +1,5 @@
 {
-  "name": "ikona",
+  "name": "ikea",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -21,6 +21,7 @@
     "@angular/router": "~9.1.6",
     "@angular/service-worker": "~9.1.6",
     "@auth0/angular-jwt": "^4.1.2",
+    "angularx-qrcode": "^2.1.1",
     "jsbarcode": "^3.11.0",
     "ngx-barcode6": "^1.0.10",
     "ngx-cookie-service": "^3.0.4",

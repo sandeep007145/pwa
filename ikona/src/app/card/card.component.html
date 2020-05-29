@@ -1,0 +1,70 @@
+<!-- Toolbar -->
+<div *ngIf="showConntent">
+  <div class="toolbar" role="banner">
+    <img width="40" alt="Ikea Logo" src="../../assets/icons/icon-384x384.png" />
+    <span>{{'Welcome' | translate}}</span>
+    &nbsp;&nbsp;
+    <div class="dropdown show">
+      <a class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        {{"Languages" | translate }}
+      </a>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <a class="dropdown-item" *ngFor="let data of languges" href="javascript:void(0)" (click)="translate.useLang(data.code)">{{data.name}}</a>
+      </div>
+    </div>
+  </div>
+  <div *ngFor="let data of barCodeFormats; let i = index" style="margin-top:14px">
+    <div class="e-card">
+      <div class="card highlight-card card-small">
+        <span>{{'Ikea_family' | translate}}</span>
+      </div>
+      <div style="text-align:center;">
+        <ng-container *ngIf="data === 'CODE128'">
+          <ngx-barcode6 [bc-format]="'CODE128'" [bc-value]="bcValue" [bc-height]="60" [bc-display-value]="true">
+          </ngx-barcode6>
+        </ng-container>
+        <ng-container *ngIf="data === 'PDF417'">
+          <div style="margin: 10px;">
+            <pdf417barcode [text]="text" [opts]="{ pxw: 1, pxh: 1 }"></pdf417barcode>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="data === 'QR'">
+          <qrcode [qrdata]="text" [width]="150" [errorCorrectionLevel]="'M'"></qrcode>
+        </ng-container>
+      </div>
+      <p *ngIf="website" style="text-align: center; margin: 5px;">
+        <a [href]="website" target="_blank">{{website}}</a>
+      </p>
+    </div>
+    <div style="width: 316px; margin-left: 8px">
+      <div>
+        <img class="image-center" src="../../../../assets/images/Add_to_Apple_Wallet_rgb_US-UK.svg">
+        <img class="image-center" src="../../../../assets/images/Save to Google Pay - English (Dark).svg">
+        <img *ngIf="deferredPrompt; else noinstall" class="image-center" src="../../assets/images/Add_Icon_w_text.png"
+          style="cursor: pointer;" (click)="addToHomeScreen()">
+          <ng-template #noinstall>
+              <p style="text-align: center;">
+                {{'Install_info' | translate}}.
+              </p>
+          </ng-template>
+      </div>
+      <strong class="header-info">{{'header' | translate}} </strong>
+      <div>
+        <strong class="header-info">{{'IOS' | translate}} </strong>
+        <strong class="header-inst">1. {{'IOS_1' | translate}}</strong>
+        <strong class="header-inst">1. {{'IOS_2' | translate}}</strong>
+      </div>
+      <div>
+        <strong class="header-info">{{'Android' | translate}} </strong>
+        <strong class="header-inst">1. {{'Android_1' | translate}}</strong>
+        <strong class="header-inst">1. {{'Android_2' | translate}}</strong>
+      </div>
+      <div>
+        <strong class="header-info">{{'Windows' | translate}} </strong>
+        <strong class="header-inst">1. {{'Windows_1' | translate}}</strong>
+        <strong class="header-inst">1. {{'Windows_2' | translate}}</strong>
+      </div>
+    </div>
+  </div>
+</div>

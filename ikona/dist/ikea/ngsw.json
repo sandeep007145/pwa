@@ -1,0 +1,104 @@
+{
+  "configVersion": 1,
+  "timestamp": 1590724715779,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "/favicon.ico",
+        "/index.html",
+        "/main-es2015.80c23b34e759f4ea4500.js",
+        "/main-es5.80c23b34e759f4ea4500.js",
+        "/manifest.webmanifest",
+        "/polyfills-es2015.690002c25ea8557bb4b0.js",
+        "/polyfills-es5.9e286f6d9247438cbb02.js",
+        "/runtime-es2015.1eba213af0b233498d9d.js",
+        "/runtime-es5.1eba213af0b233498d9d.js",
+        "/styles.09e2c710755c8867a460.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "/assets/i18n/en-US.json",
+        "/assets/i18n/en.json",
+        "/assets/i18n/es-MX.json",
+        "/assets/i18n/fil.json",
+        "/assets/i18n/fr.json",
+        "/assets/i18n/ms-MY.json",
+        "/assets/i18n/th.json",
+        "/assets/icons/icon-128x128.png",
+        "/assets/icons/icon-144x144.png",
+        "/assets/icons/icon-152x152.png",
+        "/assets/icons/icon-192x192.png",
+        "/assets/icons/icon-384x384.png",
+        "/assets/icons/icon-512x512.png",
+        "/assets/icons/icon-72x72.png",
+        "/assets/icons/icon-96x96.png",
+        "/assets/images/Add_Icon_w_text.png",
+        "/assets/images/Add_to_Apple_Wallet_rgb_US-UK.svg",
+        "/assets/images/Save to Google Pay - English (Dark).svg",
+        "/assets/images/add_icon.png",
+        "/assets/images/ios-add-home-screen-icon.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/assets/i18n/en-US.json": "cc7ee275c6db97ef4c083c8cc9bb4f66d73b9890",
+    "/assets/i18n/en.json": "c68d7461c47fa344fdd471a607ecaf2f273ae848",
+    "/assets/i18n/es-MX.json": "99ea1864b76462abaccbc1837460cbed2cab78f3",
+    "/assets/i18n/fil.json": "99ea1864b76462abaccbc1837460cbed2cab78f3",
+    "/assets/i18n/fr.json": "176c469b5133e7b2d96d04ab70570132bd56680e",
+    "/assets/i18n/ms-MY.json": "fcc14e8e67481e30ea741d4cb89c5459bf58205f",
+    "/assets/i18n/th.json": "99ea1864b76462abaccbc1837460cbed2cab78f3",
+    "/assets/icons/icon-128x128.png": "6e09e04402b4babe57b3c2fd98b2e28e1214a94b",
+    "/assets/icons/icon-144x144.png": "b0085c81ff1854affe6f0895b4def3575b0a97b6",
+    "/assets/icons/icon-152x152.png": "543c35cf9334bc131f27015ab8bdeb46806b45ec",
+    "/assets/icons/icon-192x192.png": "2dbb02197250a554e4e28a11e85378a05503dc93",
+    "/assets/icons/icon-384x384.png": "b9806ea1f914680daf1601fd4a3cbdb9348b8825",
+    "/assets/icons/icon-512x512.png": "80706f6a71242b9817e142b9b3cb0a9978287b7a",
+    "/assets/icons/icon-72x72.png": "daf073a804f6ccb322fba2a2ebcf5fc1f3f76032",
+    "/assets/icons/icon-96x96.png": "b29ad504a2160f3a19a4c08f103fd8774da3ada4",
+    "/assets/images/Add_Icon_w_text.png": "7df37d03132d19bd78baeeab17ea43e4958c3828",
+    "/assets/images/Add_to_Apple_Wallet_rgb_US-UK.svg": "78aa7600d94c882cf7541ea210c50725e7214827",
+    "/assets/images/Save to Google Pay - English (Dark).svg": "e3e3009c5197bcf61632380342aeb44c5e04e89d",
+    "/assets/images/add_icon.png": "83bd07ab17137661dde15d7ca5a200ff9f002fac",
+    "/assets/images/ios-add-home-screen-icon.png": "b937538c8e13b10830ff838bb9ece5ec69ca2fba",
+    "/favicon.ico": "3bc41aca9b03e524a9231d4b3d73cfb9b7c01c50",
+    "/index.html": "b4ebb3df100a5d89ea471e600c58c35ca2815f8b",
+    "/main-es2015.80c23b34e759f4ea4500.js": "f52ea7e42957d767d1ad6ea7bb1fca806aa966a6",
+    "/main-es5.80c23b34e759f4ea4500.js": "d177ebe9cfd38b11affe7679b9e83013fc689324",
+    "/manifest.webmanifest": "0bfa8d2a62f98c6e2d176f4645c9a307237b1f84",
+    "/polyfills-es2015.690002c25ea8557bb4b0.js": "72ad4ccc0a3916ae4598199447cdeadd6d380570",
+    "/polyfills-es5.9e286f6d9247438cbb02.js": "8aa26ea87b9958c6bd13b7c257c0e9940438e684",
+    "/runtime-es2015.1eba213af0b233498d9d.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "/runtime-es5.1eba213af0b233498d9d.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "/styles.09e2c710755c8867a460.css": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}

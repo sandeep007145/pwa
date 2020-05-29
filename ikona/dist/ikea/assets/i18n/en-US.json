@@ -1,0 +1,16 @@
+{
+    "Ikea_family": "Ikea Family",
+    "Welcome": "Welcome",
+    "Languages":"Languages",
+    "header" : "Please follow below instructions to add the eCard to your wallet/device",
+    "Android": "Android",
+    "IOS": "iPhone/iPad",
+    "Windows":"Windows Phone",
+    "Install_info" : "Application is allready installed/device not supported for installation",
+    "Android_1":"In publishing and graphic design, Lorem ipsum is a placeholder text",
+    "Android_2":"In publishing and graphic design, Lorem ipsum is a placeholder text",
+    "IOS_1":"In publishing and graphic design, Lorem ipsum is a placeholder text",
+    "IOS_2":"In publishing and graphic design, Lorem ipsum is a placeholder text",
+    "Windows_1":"In publishing and graphic design, Lorem ipsum is a placeholder text",
+    "Windows_2":"In publishing and graphic design, Lorem ipsum is a placeholder text"
+}

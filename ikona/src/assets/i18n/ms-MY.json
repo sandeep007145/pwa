@@ -1,0 +1,16 @@
+{
+    "Ikea_family":"Famille Ikea",
+    "Welcome":"Bienvenue",
+    "Languages":"langues",
+    "header" : "Dans l'édition et la conception graphique, Lorem ipsum est un texte d'espace réservé",
+    "Android": "Android",
+    "IOS": "iPhone/iPad",
+    "Windows":"Windows Phone",
+    "Install_info" : "Application is allready installed/device not supported for installation",
+    "Android_1":"Dans l'édition et la conception graphique, Lorem ipsum est un texte d'espace réservé",
+    "Android_2":"Dans l'édition et la conception graphique, Lorem ipsum est un texte d'espace réservé",
+    "IOS_1":"Dans l'édition et la conception graphique, Lorem ipsum est un texte d'espace réservé",
+    "IOS_2":"Dans l'édition et la conception graphique, Lorem ipsum est un texte d'espace réservé",
+    "Windows_1":"Dans l'édition et la conception graphique, Lorem ipsum est un texte d'espace réservé",
+    "Windows_2":"Dans l'édition et la conception graphique, Lorem ipsum est un texte d'espace réservé"
+}
