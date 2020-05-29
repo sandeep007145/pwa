@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { TranslatePipe } from './pipes/translate/translate.pipe';
-import { CardComponent } from './card/card/card.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtModule } from '@auth0/angular-jwt';
 import { CookieService } from 'ngx-cookie-service';
@@ -14,6 +13,7 @@ import { InterceptorService } from './Services/interceptor/interceptor.service';
 import { NgxBarcode6Module } from 'ngx-barcode6';
 import { Pdf417BarcodeModule } from "pdf417-barcode";
 import { QRCodeModule } from 'angularx-qrcode';
+import { CardComponent } from './card/card/card.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -24,7 +24,7 @@ export function tokenGetter() {
   declarations: [
     AppComponent,
     TranslatePipe,
-    CardComponent
+    CardComponent,
   ],
   imports: [
     BrowserModule,
