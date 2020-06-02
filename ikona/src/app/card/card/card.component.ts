@@ -135,10 +135,9 @@ export class CardComponent implements OnInit {
   addToHomeScreen() {
     if (navigator.geolocation) {
       const classValue = {
-        installIfPermitted: this.installIfPermitted.bind(this),
         data: this
       }
-      navigator.geolocation.getCurrentPosition(this.showPositions.bind(classValue, this), this.positionError);
+      navigator.geolocation.getCurrentPosition(this.showPositions.bind(classValue), this.positionError);
     } else {
       console.log('Geolocation is not supported by this device')
     }
@@ -164,23 +163,20 @@ export class CardComponent implements OnInit {
     console.log('Geolocation is not enabled. Please enable to use this feature')
   }
 
-  showPositions(that, vo) {
-    // console.log(this.deferredPrompt, this.cardService.installData);
-    
-    // this.deferredPrompt.prompt();
-    // this.deferredPrompt.userChoice
-    //   .then((choiceResult) => {
-    //     if (choiceResult.outcome === 'accepted') {
-    //       console.log('User accepted the A2HS prompt');
-    //       this.storageService.setData('installed', 1);
-    //     } else {
-    //       this.storageService.setData('installed', 0);
-    //       console.log('User dismissed the A2HS prompt');
-    //     }
-    //     this.deferredPrompt = null;
-    //   });
-    // this.installIfPermitted;
-    console.log('posiiton accepted', that, vo)
+  showPositions(that) {
+    that.deferredPrompt.prompt();
+    that.deferredPrompt.userChoice
+      .then((choiceResult) => {
+        if (choiceResult.outcome === 'accepted') {
+          console.log('User accepted the A2HS prompt');
+          that.storageService.setData('installed', 1);
+        } else {
+          that.storageService.setData('installed', 0);
+          console.log('User dismissed the A2HS prompt');
+        }
+        that.deferredPrompt = null;
+      });
+    console.log('posiiton accepted')
   }
 
 }
