@@ -35,8 +35,8 @@ export class CardComponent implements OnInit {
   @HostListener('window:beforeinstallprompt', ['$event'])
   onbeforeinstallprompt(e) {
     console.log(e);
-    e.preventDefault();
     this.deferredPrompt = e;
+    e.preventDefault();
   }
 
   constructor(
