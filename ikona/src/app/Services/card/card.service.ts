@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment';
 export class CardService {
   alldata;
   cardData;
+  installData;
   constructor(
     private http: HttpService
   ) { }

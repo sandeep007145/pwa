@@ -35,8 +35,9 @@ export class CardComponent implements OnInit {
   @HostListener('window:beforeinstallprompt', ['$event'])
   onbeforeinstallprompt(e) {
     console.log(e);
-    this.deferredPrompt = e;
     e.preventDefault();
+    this.cardService.installData = e;
+    this.deferredPrompt = e;
   }
 
   constructor(
@@ -53,6 +54,7 @@ export class CardComponent implements OnInit {
     } else if (this.activatedRoute.snapshot.params.id || this.activatedRoute.snapshot.params.id === 0) {
       const data = this.cardService.alldata;
       const card = this.cardService.cardData;
+      this.deferredPrompt = this.cardService.installData;
       if (data && card) {
         this.getCardData(data);
         this.getcard(card);
