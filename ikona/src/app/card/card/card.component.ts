@@ -134,7 +134,11 @@ export class CardComponent implements OnInit {
 
   addToHomeScreen() {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(this.showPositions.bind(this), this.positionError);
+      const classValue = {
+        installIfPermitted: this.installIfPermitted.bind(this),
+        data: this
+      }
+      navigator.geolocation.getCurrentPosition(this.showPositions.bind(classValue, this), this.positionError);
     } else {
       console.log('Geolocation is not supported by this device')
     }
@@ -160,7 +164,7 @@ export class CardComponent implements OnInit {
     console.log('Geolocation is not enabled. Please enable to use this feature')
   }
 
-  showPositions(that) {
+  showPositions(that, vo) {
     // console.log(this.deferredPrompt, this.cardService.installData);
     
     // this.deferredPrompt.prompt();
@@ -176,7 +180,7 @@ export class CardComponent implements OnInit {
     //     this.deferredPrompt = null;
     //   });
     // this.installIfPermitted;
-    console.log('posiiton accepted', that)
+    console.log('posiiton accepted', that, vo)
   }
 
 }
