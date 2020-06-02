@@ -170,18 +170,18 @@ export class CardComponent implements OnInit {
 
   showPositions(that) {
     console.log('posiiton accepted', that)
-    that.deferredPrompt.prompt();
-    that.deferredPrompt.userChoice
-      .then((choiceResult) => {
-        if (choiceResult.outcome === 'accepted') {
-          console.log('User accepted the A2HS prompt');
-          that.storageService.setData('installed', 1);
-        } else {
-          that.storageService.setData('installed', 0);
-          console.log('User dismissed the A2HS prompt');
-        }
-        that.deferredPrompt = null;
-      });
+    // that.deferredPrompt.prompt();
+    // that.deferredPrompt.userChoice
+    //   .then((choiceResult) => {
+    //     if (choiceResult.outcome === 'accepted') {
+    //       console.log('User accepted the A2HS prompt');
+    //       that.storageService.setData('installed', 1);
+    //     } else {
+    //       that.storageService.setData('installed', 0);
+    //       console.log('User dismissed the A2HS prompt');
+    //     }
+    //     that.deferredPrompt = null;
+    //   });
   }
 
 }
