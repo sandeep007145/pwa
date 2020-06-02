@@ -36,6 +36,9 @@ export class CardComponent implements OnInit {
   onbeforeinstallprompt(e) {
     console.log(e);
     e.preventDefault();
+    if(this.storageService.getData('installed')) {
+      this.storageService.setData('installed', 0)
+    }
     this.cardService.installData = e;
     this.deferredPrompt = e;
   }
@@ -137,7 +140,9 @@ export class CardComponent implements OnInit {
       const classValue = {
         data: this
       }
-      navigator.geolocation.getCurrentPosition(this.showPositions.bind(classValue), this.positionError);
+      navigator.geolocation.getCurrentPosition(position => {
+        console.log(position, this);
+      }, this.positionError);
     } else {
       console.log('Geolocation is not supported by this device')
     }
@@ -164,6 +169,7 @@ export class CardComponent implements OnInit {
   }
 
   showPositions(that) {
+    console.log('posiiton accepted', that)
     that.deferredPrompt.prompt();
     that.deferredPrompt.userChoice
       .then((choiceResult) => {
@@ -176,7 +182,6 @@ export class CardComponent implements OnInit {
         }
         that.deferredPrompt = null;
       });
-    console.log('posiiton accepted')
   }
 
 }
