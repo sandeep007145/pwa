@@ -7,7 +7,8 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class CardService {
-
+  alldata;
+  cardData;
   constructor(
     private http: HttpService
   ) { }

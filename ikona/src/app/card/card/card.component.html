@@ -1,7 +1,7 @@
 <!-- Toolbar -->
 <div *ngIf="!errorInKey; else error">
   <div *ngIf="showConntent" class="toolbar" role="banner">
-    <img width="40" alt="Ikea Logo" src="../../assets/icons/icon-384x384.png" />
+    <img alt="Ikea Logo" src="../../../assets/images/IKEA_2018_sRGB_48px.png" />
     <span>{{'Welcome' | translate}}</span>
     &nbsp;&nbsp;
     <div class="dropdown show">
@@ -77,7 +77,7 @@
 </ng-template>
 <div *ngIf="noUrl">
     <div class="toolbar" role="banner">
-        <img width="40" alt="Ikea Logo" src="../../assets/icons/icon-384x384.png" />
+        <img alt="Ikea Logo" src="../../../assets/images/IKEA_2018_sRGB_48px.png" />
         <span>{{'Welcome' | translate}}</span>
         &nbsp;&nbsp;
         <div class="dropdown show">
@@ -91,5 +91,5 @@
           </div>
         </div>
       </div>
-      <img class="image-center" src="../../../assets/icons/icon-512x512.png" alt="image">
+      <img class="image-center" style="min-width: 30%; max-width: 100%;" src="../../../assets/icons/icon-384x384.png" alt="image">
 </div>

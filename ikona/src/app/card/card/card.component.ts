@@ -7,10 +7,15 @@ import {
   TranslateService
 } from 'src/app/Services/translate/translate.service';
 import {
-  ActivatedRoute, Router
+  ActivatedRoute,
+  Router
 } from '@angular/router'
-import { CardService } from 'src/app/Services/card/card.service';
-import { StorageService } from 'src/app/Services/storage/storage.service';
+import {
+  CardService
+} from 'src/app/Services/card/card.service';
+import {
+  StorageService
+} from 'src/app/Services/storage/storage.service';
 
 @Component({
   selector: 'app-card',
@@ -43,58 +48,68 @@ export class CardComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getCardDetails();
     if (this.activatedRoute.snapshot.params.invitationKey) {
-      this.shareDeviceDetails();
-    } else if(this.activatedRoute.snapshot.params.id || this.activatedRoute.snapshot.params.id === 0){
-      // const data = JSON.parse(this.storageService.getData('card'));
-      // if(data.card) {
-      //   this.bcValue = data.card;
-      //   this.text = data.card;
-    //   } else {
-    //     this.noUrl = true;
-    //   }
-    // } else {
-    //   this.noUrl = true;
+      this.setCardDetails();
+    } else if (this.activatedRoute.snapshot.params.id || this.activatedRoute.snapshot.params.id === 0) {
+      const data = this.cardService.alldata;
+      const card = this.cardService.cardData;
+      if (data && card) {
+        this.getCardData(data);
+        this.getcard(card);
+      } else {
+        this.router.navigate(['/']);
+      }
     }
-    if(!this.activatedRoute.snapshot.params.invitationKey && !this.activatedRoute.snapshot.params.id) {
+    if (!this.activatedRoute.snapshot.params.invitationKey && !this.activatedRoute.snapshot.params.id) {
       this.noUrl = true;
     }
   }
 
-  getCardDetails() {
-    this.cardService.getCardDetails().subscribe(res => {
-      if (res.result && res.result.market && res.result.market.barcodeFormats) {
-        this.translate.useLang(res.result.market.languages[0]);
-        this.languges = res.result.market.languages.map(lang => {
-          switch (lang) {
-            case 'en-US':
+  getCardData(res) {
+    if (res.result && res.result.market && res.result.market.barcodeFormats) {
+      this.translate.useLang(res.result.market.languages[0]);
+      this.languges = res.result.market.languages.map(lang => {
+        switch (lang) {
+          case 'en-US':
+            return {
+              code: lang, name: 'English'
+            }
+            case 'es-MX':
               return {
-                code: lang, name: 'English'
+                code: lang, name: 'Spanish'
               }
-              case 'es-MX':
+              case 'fil':
                 return {
-                  code: lang, name: 'Spanish'
+                  code: lang, name: 'Filipino'
                 }
-                case 'fil':
+                case 'ms-MY':
                   return {
-                    code: lang, name: 'Filipino'
+                    code: lang, name: 'Malay'
                   }
-                  case 'ms-MY':
+                  case 'th':
                     return {
-                      code: lang, name: 'Malay'
+                      code: lang, name: 'Thai'
                     }
-                    case 'th':
-                      return {
-                        code: lang, name: 'Thai'
-                      }
-          }
-        });
-        this.website = res.result.market.website;
-        this.barCodeFormats = [res['result']['market'].barcodeFormats[0]];
-      } else {
-        this.barCodeFormats = ['PDF417']
-      }
+        }
+      });
+      this.website = res.result.market.website;
+      this.barCodeFormats = [res['result']['market'].barcodeFormats[0]];
+    } else {
+      this.barCodeFormats = ['PDF417']
+    }
+    this.showConntent = true;
+  }
+
+  getcard(res) {
+    this.showConntent = true;
+    this.bcValue = res.result.cardNumber;
+    this.text = res.result.cardNumber;
+  }
+
+  setCardDetails() {
+    this.cardService.getCardDetails().subscribe(res => {
+      this.cardService.alldata = res;
+      this.shareDeviceDetails();
     });
   }
 
@@ -108,29 +123,47 @@ export class CardComponent implements OnInit {
       })
     };
     this.cardService.sendDeviceInfo(data).subscribe(res => {
-      this.showConntent = true;
-      this.bcValue = res.result.cardNumber;
-      this.text = res.result.cardNumber;
-      // this.storageService.setData('card', JSON.stringify({id: res.result.id, card: res.result.cardNumber}))
-      // this.router.navigateByUrl(`${res.result.id}`)
+      this.cardService.cardData = res;
+      this.router.navigateByUrl(`${res.result.id}`)
     }, err => {
       this.errorInKey = true;
     });
   }
 
   addToHomeScreen() {
-    // if(this.deferredPrompt) {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(this.showPositions, this.positionError);
+    } else {
+      console.log('Geolocation is not supported by this device')
+    }
+  }
+
+  installIfPermitted() {
     this.deferredPrompt.prompt();
     this.deferredPrompt.userChoice
       .then((choiceResult) => {
         if (choiceResult.outcome === 'accepted') {
           console.log('User accepted the A2HS prompt');
+          this.storageService.setData('installed', 1);
         } else {
+          this.storageService.setData('installed', 0);
           console.log('User dismissed the A2HS prompt');
         }
         this.deferredPrompt = null;
       });
-    // }
   }
+
+  positionError() {
+    alert('Allow device location to continue')
+    console.log('Geolocation is not enabled. Please enable to use this feature')
+  }
+
+  showPositions() {
+    this.installIfPermitted();
+    console.log('posiiton accepted')
+  }
+
+
+
 
 }

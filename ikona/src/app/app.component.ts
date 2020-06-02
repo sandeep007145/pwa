@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.findMe();
+    // this.findMe();
   }
 
   findMe() {
