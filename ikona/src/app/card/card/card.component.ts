@@ -161,11 +161,22 @@ export class CardComponent implements OnInit {
   }
 
   showPositions() {
-    this.installIfPermitted();
+    console.log(this.deferredPrompt, this.cardService.installData);
+    
+    this.deferredPrompt.prompt();
+    this.deferredPrompt.userChoice
+      .then((choiceResult) => {
+        if (choiceResult.outcome === 'accepted') {
+          console.log('User accepted the A2HS prompt');
+          this.storageService.setData('installed', 1);
+        } else {
+          this.storageService.setData('installed', 0);
+          console.log('User dismissed the A2HS prompt');
+        }
+        this.deferredPrompt = null;
+      });
+    // this.installIfPermitted;
     console.log('posiiton accepted')
   }
-
-
-
 
 }
