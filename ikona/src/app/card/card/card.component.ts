@@ -137,11 +137,9 @@ export class CardComponent implements OnInit {
 
   addToHomeScreen() {
     if (navigator.geolocation) {
-      const classValue = {
-        data: this
-      }
       navigator.geolocation.getCurrentPosition(position => {
         console.log(position, this);
+        this.installIfPermitted();
       }, this.positionError);
     } else {
       console.log('Geolocation is not supported by this device')
@@ -166,22 +164,6 @@ export class CardComponent implements OnInit {
   positionError() {
     alert('Allow device location to continue')
     console.log('Geolocation is not enabled. Please enable to use this feature')
-  }
-
-  showPositions(that) {
-    console.log('posiiton accepted', that)
-    // that.deferredPrompt.prompt();
-    // that.deferredPrompt.userChoice
-    //   .then((choiceResult) => {
-    //     if (choiceResult.outcome === 'accepted') {
-    //       console.log('User accepted the A2HS prompt');
-    //       that.storageService.setData('installed', 1);
-    //     } else {
-    //       that.storageService.setData('installed', 0);
-    //       console.log('User dismissed the A2HS prompt');
-    //     }
-    //     that.deferredPrompt = null;
-    //   });
   }
 
 }
