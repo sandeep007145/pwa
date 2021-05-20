@@ -16,7 +16,9 @@ export class StorageCheckComponent implements OnInit {
 
   ngOnInit() {
     this.setStorage();
-    this.getStorage();
+    setTimeout(() => {
+      this.getStorage();
+    }, 1000);
   }
 
   setStorage() {
