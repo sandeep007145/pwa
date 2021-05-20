@@ -26,9 +26,21 @@ export class StorageCheckComponent implements OnInit {
     this.storageService.setcache(JSON.stringify({ data: 'Working' }));
   }
 
- async getStorage() {
-    this.stores.push('local: ' +  this.storageService.returnLocal());
-    this.stores.push('cache: ' + await this.storageService.displayCachedData());
+  async getStorage() {
+    if (this.isInStandaloneMode()) {
+      this.stores.push('In stand Alone mode');
+      this.stores.push('local: ' + this.storageService.returnLocal());
+      this.stores.push('cache: ' + await this.storageService.displayCachedData());
+    } else {
+      this.stores.push('Not in stand Alone mode');
+    }
+  }
+
+  isInStandaloneMode() {
+    return ((window as any).clientInformation.standalone) ||
+      (window.matchMedia('(display-mode: standalone)').matches) ||
+      // tslint:disable-next-line:no-string-literal
+      (navigator['standalone'] === true);
   }
 
 
