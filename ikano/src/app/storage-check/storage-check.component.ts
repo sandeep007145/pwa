@@ -22,8 +22,10 @@ export class StorageCheckComponent implements OnInit {
   }
 
   setStorage() {
-    this.storageService.checkLocal(JSON.stringify({ data: 'Working' }));
-    this.storageService.setcache(JSON.stringify({ data: 'Working' }));
+    if (!this.isInStandaloneMode()) {
+      this.storageService.checkLocal(JSON.stringify({ data: 'Working' }));
+      this.storageService.setcache(JSON.stringify({ data: 'Working' }));
+    }
   }
 
   async getStorage() {
