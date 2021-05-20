@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({
 // jwt secret token
 app.set('secretKey', 'nodeRestApi');
 
-app.use(express.static(path.join(__dirname, 'IkeaFamilyEcard/dist/ikea')));
+app.use(express.static(path.join(__dirname, 'IkeaFamilyEcard/dist/IkeaFamilyEcard')));
 
 app.get('/', function(req, res) {
     res.json({
